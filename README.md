@@ -43,5 +43,5 @@ This command will build and run each application contains by the `docker-compose
 For those who are running on Windows, you cannot access to the server via `localhost`. In fact, the docker-machine on which you are running created a specific environment which can be accessed with an ip address. To find it, use
 
 ```
-docker inspect --format '{{ .NetworkSettings.IPAddress }}' <image_name>
+docker-machine ip
 ```

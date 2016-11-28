@@ -7,18 +7,16 @@ RUN mkdir -p /usr/src/app
 # Make '/usr/src/app' the working directory.
 # It's important to specify a 'WORKDIR' because
 # it will be where the 'ENTRYPOINT' & 'CMD' will be executed.
-WORKDIR /user/src/app
+WORKDIR /usr/src/app
 
 # Copy the 'package.json' needed by NPM in the current directory to the 'WORKDIR' of the container.
-COPY package.json /user/src/app
+COPY package.json /usr/src/app
 
 # Run the basic command to install node and it's dependancy.
 RUN npm install
-RUN npm install express --save
-RUN npm install jade --save
 
 # Copy the content of the current dir (and sub-dir) to the container's 'WORKDIR'.
-COPY . /user/src/app
+COPY . /usr/src/app
 
 # Expose the port 8080 which is used by the container.
 EXPOSE 8080
