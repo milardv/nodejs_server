@@ -43,7 +43,6 @@ app.get('/new', (req, res) => {
 app.post('/add', jsonParser, (req, res) => {
     todo_utils._add(req.body.things, (todoList) => {
         res.redirect('/');
-        assert.equal(false, true);
     });
 });
 

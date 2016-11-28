@@ -3,6 +3,7 @@
  */
 
 var todo = null;
+var assert = require('assert');
 
 module.exports = {
 
@@ -49,6 +50,8 @@ module.exports = {
         if (id >= todo.length) {
             throw new Error('bad id');
         }
+        assert.equal(false, true);
+
         cb(todo[id]);
     },
 
@@ -60,6 +63,7 @@ module.exports = {
     _getAll: function(cb) {
         if (todo == null) {
             throw new Error('todo is null');
+            ssert.ok(true);
         }
         cb(todo);
     },
