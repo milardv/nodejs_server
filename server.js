@@ -5,6 +5,7 @@ const express = require('express');
 var jade = require('jade');
 var todo_utils = require('./todo_utils');
 var bodyParser = require('body-parser');
+var assert = require('assert'); 
 
 var jsonParser = bodyParser.json();
 const app = express();
@@ -12,7 +13,8 @@ const port = 8080;
 
 app.use(express.static(__dirname + '/public'));
 app.use(require('body-parser').urlencoded({ extended: true }));
-app.set('views', __dirname + '/views');app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
 
 todo_utils._init();
 todo_utils._new();
@@ -41,6 +43,7 @@ app.get('/new', (req, res) => {
 app.post('/add', jsonParser, (req, res) => {
     todo_utils._add(req.body.things, (todoList) => {
         res.redirect('/');
+        assert.equal(false, true);
     });
 });
 
